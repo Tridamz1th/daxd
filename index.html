@@ -1,0 +1,264 @@
+<html class="scroll-smooth" lang="id">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   daxd Gemini
+  </title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body, html {
+     margin: 0;
+     padding: 0;
+     height: 100%;
+     font-family: "Google Sans", Arial, sans-serif;
+     background-color: white;
+     color: black;
+     display: flex;
+     flex-direction: column;
+     min-height: 100vh;
+   }
+   main {
+     flex-grow: 1;
+     max-width: 400px;
+     width: 100%;
+     margin: 0 auto;
+     padding: 2rem 1.5rem 0 1.5rem;
+     box-sizing: border-box;
+   }
+   header {
+     position: sticky;
+     top: 0;
+     z-index: 50;
+     background-color: rgba(255, 255, 255, 0.7);
+     backdrop-filter: blur(10px);
+     -webkit-backdrop-filter: blur(10px);
+     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+     width: 100%;
+   }
+   .header-inner {
+     max-width: 400px;
+     margin: 0 auto;
+     padding: 0.75rem 1rem;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+   }
+   .header-left {
+     display: flex;
+     align-items: center;
+     gap: 0.5rem;
+   }
+   .header-left span {
+     font-weight: 700;
+     font-size: 1.5rem;
+     user-select: none;
+   }
+   .header-right {
+     display: flex;
+     align-items: center;
+     gap: 1rem;
+   }
+   .header-right button {
+     background: none;
+     border: none;
+     font-size: 1.25rem;
+     color: black;
+     cursor: pointer;
+   }
+   .image-container {
+     position: relative;
+     border-radius: 1.5rem;
+     overflow: hidden;
+     margin-bottom: 4rem;
+   }
+   .image-container img {
+     width: 100%;
+     height: 300px;
+     object-fit: cover;
+     border-radius: 1.5rem;
+     display: block;
+   }
+   .package-text {
+     margin-top: 0;
+     margin-bottom: 1rem;
+     text-align: center;
+     font-weight: 700;
+     font-size: 1.5rem;
+     color: black;
+     user-select: none;
+   }
+   .overlay-extended {
+     width: 100%;
+     height: 600px;
+     background-color: rgba(0, 0, 0, 0.8);
+     border-radius: 1.5rem;
+     margin: 0 auto 0 auto;
+     pointer-events: none;
+     user-select: none;
+     max-width: 400px;
+   }
+   .text-below-overlay {
+     max-width: 400px;
+     margin: 1.5rem auto 0 auto;
+     padding: 0 1rem;
+     color: #4a4a4a;
+     font-weight: 300;
+     font-size: 1rem;
+     user-select: none;
+   }
+   .text-below-overlay h2 {
+     font-weight: 700;
+     font-size: 1.25rem;
+     margin-bottom: 0.5rem;
+     color: black;
+     text-align: left;
+   }
+   .text-below-overlay p {
+     margin: 0;
+     line-height: 1.4;
+     text-align: left;
+   }
+   .overlay-6-19 {
+     width: 100%;
+     max-width: 400px;
+     aspect-ratio: 6 / 19;
+     background-color: rgba(0, 0, 0, 0.8);
+     border-radius: 1.5rem;
+     margin: 1rem auto 0 auto;
+     pointer-events: none;
+     user-select: none;
+     height: auto !important;
+     max-height: 100px;
+   }
+   .centered-description {
+     max-width: 400px;
+     margin: 1.5rem auto 0 auto;
+     padding: 0 1rem;
+     color: #4a4a4a;
+     font-weight: 300;
+     font-size: 1rem;
+     user-select: none;
+     text-align: center;
+   }
+   footer {
+     background-color: #000000;
+     color: white;
+     width: 100%;
+     flex-shrink: 0;
+   }
+   .footer-inner {
+     max-width: 400px;
+     margin: 0 auto;
+     padding: 1.5rem 1.5rem 2rem 1.5rem;
+     box-sizing: border-box;
+     display: flex;
+     flex-direction: column;
+     min-height: 180px;
+     justify-content: space-between;
+   }
+   .footer-top {
+     display: flex;
+     align-items: center;
+     gap: 0.75rem;
+   }
+   .footer-top i {
+     font-size: 1.75rem;
+     color: #4caf50;
+   }
+   .footer-top span {
+     font-weight: 700;
+     font-size: 1.25rem;
+   }
+   .footer-links {
+     display: flex;
+     flex-direction: column;
+     gap: 0.5rem;
+     color: #b0b0b0;
+     margin-top: 1rem;
+   }
+   .footer-links a {
+     color: #b0b0b0;
+     text-decoration: none;
+     font-weight: 300;
+     font-size: 1rem;
+   }
+   .footer-links a:hover {
+     text-decoration: underline;
+   }
+   .footer-bottom {
+     text-align: center;
+     font-weight: 300;
+     font-size: 0.85rem;
+     color: #888888;
+     user-select: none;
+     margin-top: 1.5rem;
+   }
+  </style>
+ </head>
+ <body>
+  <header>
+   <div class="header-inner">
+    <div class="header-left">
+     <span>daxd</span>
+    </div>
+    <div class="header-right">
+     <button aria-label="Search" type="button">
+      <i class="fas fa-search"></i>
+     </button>
+     <button aria-label="Settings" type="button">
+      <i class="fas fa-bars"></i>
+     </button>
+    </div>
+   </div>
+  </header>
+  <main>
+   <h1 class="font-extrabold text-black text-4xl leading-tight mb-6">
+    Hallo, Senang bertemu dengan mu developer ;)
+   </h1>
+   <button class="inline-flex items-center gap-2 bg-blue-200 text-black font-semibold text-lg rounded-full px-8 py-3 mb-8 hover:bg-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400" type="button">
+    Developer
+    <svg aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+     <path d="M17 7l4 4m0 0l-4 4m4-4H3" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+   </button>
+   <div class="image-container">
+    <img alt="Black background" height="300" src="https://storage.googleapis.com/a1aa/image/15eb38c6-9c9f-4973-a771-0864e3f70e80.jpg" width="400"/>
+   </div>
+   <div class="package-text">Package</div>
+   <div class="overlay-extended"></div>
+   <div class="text-below-overlay">
+    <h2>Package</h2>
+    <p>Website ini menyediakan berbagai informasi dan layanan terkait pengembangan aplikasi dengan fokus pada teknologi terbaru dan solusi inovatif untuk developer.</p>
+   </div>
+   <div class="text-below-overlay">
+    <h2>Package</h2>
+    <p>Website ini menyediakan berbagai informasi dan layanan terkait pengembangan aplikasi dengan fokus pada teknologi terbaru dan solusi inovatif untuk developer.</p>
+    <div class="overlay-6-19"></div>
+   </div>
+   <div class="centered-description">
+    Website ini menyediakan berbagai informasi dan layanan terkait pengembangan aplikasi dengan fokus pada teknologi terbaru dan solusi inovatif untuk developer.
+   </div>
+  </main>
+  <footer>
+   <div class="footer-inner">
+    <div class="footer-top">
+     <i class="fab fa-android" aria-hidden="true"></i>
+     <span>daxd</span>
+    </div>
+    <div class="footer-links">
+     <a href="#" tabindex="0">Kontak developer</a>
+     <a href="#" tabindex="0">Repository</a>
+     <a href="#" tabindex="0">Github</a>
+     <a href="#" tabindex="0">LinkIn</a>
+    </div>
+    <div class="footer-bottom">
+     <div>daxd</div>
+     <div>@copyright 2025-2026</div>
+    </div>
+   </div>
+  </footer>
+ </body>
+</html>
