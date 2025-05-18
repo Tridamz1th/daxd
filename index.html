@@ -6,7 +6,7 @@
   <title>daxd Gemini</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;700&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+Arabic:wght@400;700&family=Noto+Sans+Devanagari:wght@400;700&family=Noto+Sans+Thai:wght@400;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
    body, html {
      margin: 0;
@@ -24,7 +24,7 @@
      width: 100%;
      max-width: 1200px;
      margin: 0 auto;
-     padding: 2rem 4rem; /* Dobel dari 2rem */
+     padding: 2rem 4rem;
      box-sizing: border-box;
    }
    header {
@@ -40,7 +40,7 @@
    .header-inner {
      max-width: 1200px;
      margin: 0 auto;
-     padding: 0.75rem 4rem; /* Dobel dari 2rem */
+     padding: 0.75rem 4rem;
      display: flex;
      justify-content: space-between;
      align-items: center;
@@ -83,7 +83,7 @@
    .package-text {
      margin-top: 0;
      margin-bottom: 1rem;
-     padding: 0 4rem; /* Dobel dari 2rem */
+     padding: 0 4rem;
      text-align: center;
      font-weight: 700;
      font-size: 1.25rem;
@@ -96,7 +96,7 @@
      background-position: center;
      border-radius: 1.5rem;
      margin: 0 auto;
-     padding: 0 4rem; /* Dobel dari 2rem */
+     padding: 0 4rem;
      box-sizing: border-box;
      pointer-events: none;
      user-select: none;
@@ -105,7 +105,7 @@
      width: 100%;
      max-width: 1200px;
      margin: 1rem auto 0 auto;
-     padding: 0 4rem; /* Dobel dari 2rem */
+     padding: 0 4rem;
      color: #4a4a4a;
      font-weight: 300;
      font-size: 1rem;
@@ -116,11 +116,13 @@
      margin-bottom: 0.5rem;
      color: black;
      text-align: left;
+     padding: 0;
    }
    .text-below-overlay p {
      margin: 0;
      line-height: 1.5;
      text-align: left;
+     padding: 0;
    }
    .overlay-6-19 {
      width: 100%;
@@ -130,7 +132,7 @@
      background-position: center;
      border-radius: 1.5rem;
      margin: 1rem auto 0 auto;
-     padding: 0 4rem; /* Dobel dari 2rem */
+     padding: 0 4rem;
      box-sizing: border-box;
      pointer-events: none;
      user-select: none;
@@ -140,11 +142,19 @@
      width: 100%;
      max-width: 1200px;
      margin: 1rem auto 0 auto;
-     padding: 0 4rem; /* Dobel dari 2rem */
+     padding: 0 4rem;
      color: #4a4a4a;
      font-weight: 300;
      font-size: 1rem;
      text-align: center;
+   }
+   .centered-description h2 {
+     font-weight: 700;
+     font-size: 1.25rem;
+     margin-bottom: 0.5rem;
+     color: black;
+     text-align: center;
+     padding: 0 4rem;
    }
    footer {
      background-color: #000000;
@@ -155,7 +165,7 @@
    .footer-inner {
      max-width: 1200px;
      margin: 0 auto;
-     padding: 1.5rem 4rem; /* Dobel dari 2rem */
+     padding: 1.5rem 4rem;
      box-sizing: border-box;
      display: flex;
      flex-direction: column;
@@ -199,12 +209,30 @@
      user-select: none;
      margin-top: 1rem;
    }
+   /* Animasi Fade untuk Hello */
+   .hello-container {
+     display: block;
+     position: relative;
+     min-width: 200px; /* Untuk teks terlebar, misal: 안녕하세요 */
+     height: 2em; /* Untuk aksara tinggi */
+     margin-bottom: 0.5rem;
+     font-family: "Noto Sans", "Noto Sans Arabic", "Noto Sans Devanagari", "Noto Sans Thai", "Noto Sans JP", "Noto Sans KR", "Noto Sans SC", "Google Sans", sans-serif;
+   }
+   .hello-text {
+     display: block;
+     opacity: 0;
+     transition: opacity 0.5s ease-in-out; /* Fade in/out 0.5 detik */
+     will-change: opacity;
+   }
+   .hello-text.active {
+     opacity: 1;
+   }
    @media (max-width: 640px) {
      main {
-       padding: 1rem 2rem; /* Dobel dari 1rem */
+       padding: 1rem 2rem;
      }
      .header-inner {
-       padding: 0.75rem 2rem; /* Dobel dari 1rem */
+       padding: 0.75rem 2rem;
      }
      .header-left span {
        font-size: 1.25rem;
@@ -217,32 +245,38 @@
      }
      .overlay-extended {
        height: 200px;
-       padding: 0 2rem; /* Dobel dari 1rem */
+       padding: 0 2rem;
        background-image: url('https://via.placeholder.com/600x200/00000080/00000080.png');
      }
      .package-text {
        font-size: 1rem;
-       padding: 0 2rem; /* Dobel dari 1rem */
+       padding: 0 2rem;
      }
      .text-below-overlay {
-       padding: 0 2rem; /* Dobel dari 1rem */
+       padding: 0 2rem;
      }
      .text-below-overlay h2 {
        font-size: 1rem;
+       padding: 0;
      }
      .text-below-overlay p {
        font-size: 0.875rem;
+       padding: 0;
      }
      .overlay-6-19 {
-       padding: 0 2rem; /* Dobel dari 1rem */
+       padding: 0 2rem;
        background-image: url('https://via.placeholder.com/300x95/00000080/00000080.png');
      }
      .centered-description {
+       padding: 0 2rem;
        font-size: 0.875rem;
-       padding: 0 2rem; /* Dobel dari 1rem */
+     }
+     .centered-description h2 {
+       font-size: 1rem;
+       padding: 0 2rem;
      }
      .footer-inner {
-       padding: 1.5rem 2rem; /* Dobel dari 1rem */
+       padding: 1.5rem 2rem;
      }
      .footer-top i {
        font-size: 1.25rem;
@@ -252,6 +286,13 @@
      }
      .footer-links a {
        font-size: 0.75rem;
+     }
+     h1 {
+       margin-top: 2rem !important;
+     }
+     .hello-container {
+       min-width: 160px;
+       height: 1.8em;
      }
    }
    @media (min-width: 641px) and (max-width: 1024px) {
@@ -265,6 +306,9 @@
      .overlay-6-19 {
        background-image: url('https://via.placeholder.com/400x126/00000080/00000080.png');
      }
+   }
+   h1 {
+     margin-top: 4rem;
    }
   </style>
  </head>
@@ -285,10 +329,15 @@
    </div>
   </header>
   <main>
-   <h1 class="font-extrabold text-black text-2xl sm:text-3xl md:text-4xl leading-tight mb-4 sm:mb-6">
-    Hallo, Senang bertemu dengan mu developer ;)
+   <h1 class="font-extrabold text-black text-4xl sm:text-5xl md:text-6xl leading-tight mb-2">
+     <span class="hello-container">
+       <span class="hello-text active">Hallo</span>
+     </span>
    </h1>
-   <!-- Tombol Developer dengan redirect ke dev.html -->
+   <p class="font-bold text-black text-2xl sm:text-2xl md:text-2xl leading-tight mb-4 sm:mb-6">
+     Lakukan apa yang anda mau dan memberontak tentang batasan di ponsel anda
+   </p>
+   <!-- Tombol Developer dimodifikasi untuk redirect ke dev.html -->
    <button 
      class="inline-flex items-center gap-2 bg-blue-200 text-black font-semibold text-base sm:text-lg rounded-full px-6 sm:px-8 py-2 sm:py-3 mb-6 sm:mb-8 hover:bg-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400" 
      type="button" 
@@ -314,7 +363,8 @@
     <div class="overlay-6-19"></div>
    </div>
    <div class="centered-description">
-    Website ini menyediakan berbagai informasi dan layanan terkait pengembangan aplikasi dengan fokus pada teknologi terbaru dan solusi inovatif untuk developer.
+    <h2>Catatan</h2>
+    <p>Ayo, developer! Wujudkan ide kreatifmu dengan HTML, CSS, JS, PHP, dan teknologi lainnya. Terus belajar, coding, dan ciptakan solusi inovatif yang mengubah dunia!</p>
    </div>
   </main>
   <footer>
@@ -335,5 +385,43 @@
     </div>
    </div>
   </footer>
+  <script>
+   const hellos = [
+     "Hai", // Indonesia (Latin)
+     "Hello", // Inggris (Latin)
+     "Hola", // Spanyol (Latin)
+     "Bonjour", // Prancis (Latin)
+     "Ciao", // Italia (Latin)
+     "こんにちは", // Jepang (Hiragana)
+     "Halo", // Polandia (Latin)
+     "Привет", // Rusia (Cyrillic)
+     "Oi", // Portugis (Latin)
+     "안녕하세요", // Korea (Hangul)
+     "สวัสดี", // Thailand (Thai)
+     "你好", // Mandarin (Hanzi)
+     "Merhaba", // Turki (Latin)
+     "مرحبا", // Arab (Arab)
+     "नमस्ते", // Hindi (Devanagari)
+     "Xin chào" // Vietnam (Latin dengan diakritik)
+   ];
+   const helloText = document.querySelector('.hello-text');
+   let index = 0;
+
+   function changeHello() {
+     // Fade out
+     helloText.classList.remove('active');
+     setTimeout(() => {
+       // Ganti teks saat opacity 0
+       helloText.textContent = hellos[index];
+       index = (index + 1) % hellos.length;
+       // Fade in
+       helloText.classList.add('active');
+     }, 500); // Tunggu fade out selesai (0.5 detik)
+   }
+
+   // Mulai animasi
+   changeHello();
+   setInterval(changeHello, 3000); // Ganti setiap 3 detik
+  </script>
  </body>
-      </html>
+ </html>
