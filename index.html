@@ -2,12 +2,10 @@
  <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <title>
-   daxd Gemini
-  </title>
+  <title>daxd Gemini</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
    body, html {
      margin: 0;
@@ -22,10 +20,10 @@
    }
    main {
      flex-grow: 1;
-     max-width: 400px;
      width: 100%;
+     max-width: 1200px;
      margin: 0 auto;
-     padding: 2rem 1.5rem 0 1.5rem;
+     padding: 2rem 4rem; /* Dobel dari 2rem */
      box-sizing: border-box;
    }
    header {
@@ -39,9 +37,9 @@
      width: 100%;
    }
    .header-inner {
-     max-width: 400px;
+     max-width: 1200px;
      margin: 0 auto;
-     padding: 0.75rem 1rem;
+     padding: 0.75rem 4rem; /* Dobel dari 2rem */
      display: flex;
      justify-content: space-between;
      align-items: center;
@@ -54,17 +52,16 @@
    .header-left span {
      font-weight: 700;
      font-size: 1.5rem;
-     user-select: none;
    }
    .header-right {
      display: flex;
      align-items: center;
-     gap: 1rem;
+     gap: 0.75rem;
    }
    .header-right button {
      background: none;
      border: none;
-     font-size: 1.25rem;
+     font-size: 1rem;
      color: black;
      cursor: pointer;
    }
@@ -72,11 +69,12 @@
      position: relative;
      border-radius: 1.5rem;
      overflow: hidden;
-     margin-bottom: 4rem;
+     margin-bottom: 2rem;
    }
    .image-container img {
      width: 100%;
-     height: 300px;
+     height: auto;
+     max-height: 400px;
      object-fit: cover;
      border-radius: 1.5rem;
      display: block;
@@ -84,63 +82,67 @@
    .package-text {
      margin-top: 0;
      margin-bottom: 1rem;
+     padding: 0 4rem; /* Dobel dari 2rem */
      text-align: center;
      font-weight: 700;
-     font-size: 1.5rem;
-     color: black;
-     user-select: none;
+     font-size: 1.25rem;
    }
    .overlay-extended {
      width: 100%;
-     height: 600px;
-     background-color: rgba(0, 0, 0, 0.8);
+     height: 300px;
+     background-image: url('https://via.placeholder.com/1200x300/00000080/00000080.png');
+     background-size: cover;
+     background-position: center;
      border-radius: 1.5rem;
-     margin: 0 auto 0 auto;
+     margin: 0 auto;
+     padding: 0 4rem; /* Dobel dari 2rem */
+     box-sizing: border-box;
      pointer-events: none;
      user-select: none;
-     max-width: 400px;
    }
    .text-below-overlay {
-     max-width: 400px;
-     margin: 1.5rem auto 0 auto;
-     padding: 0 1rem;
+     width: 100%;
+     max-width: 1200px;
+     margin: 1rem auto 0 auto;
+     padding: 0 4rem; /* Dobel dari 2rem */
      color: #4a4a4a;
      font-weight: 300;
      font-size: 1rem;
-     user-select: none;
    }
    .text-below-overlay h2 {
      font-weight: 700;
-     font-size: 1.25rem;
+     font-size: 1.125rem;
      margin-bottom: 0.5rem;
      color: black;
      text-align: left;
    }
    .text-below-overlay p {
      margin: 0;
-     line-height: 1.4;
+     line-height: 1.5;
      text-align: left;
    }
    .overlay-6-19 {
      width: 100%;
-     max-width: 400px;
      aspect-ratio: 6 / 19;
-     background-color: rgba(0, 0, 0, 0.8);
+     background-image: url('https://via.placeholder.com/600x190/00000080/00000080.png');
+     background-size: cover;
+     background-position: center;
      border-radius: 1.5rem;
      margin: 1rem auto 0 auto;
+     padding: 0 4rem; /* Dobel dari 2rem */
+     box-sizing: border-box;
      pointer-events: none;
      user-select: none;
-     height: auto !important;
-     max-height: 100px;
+     max-height: 80px;
    }
    .centered-description {
-     max-width: 400px;
-     margin: 1.5rem auto 0 auto;
-     padding: 0 1rem;
+     width: 100%;
+     max-width: 1200px;
+     margin: 1rem auto 0 auto;
+     padding: 0 4rem; /* Dobel dari 2rem */
      color: #4a4a4a;
      font-weight: 300;
      font-size: 1rem;
-     user-select: none;
      text-align: center;
    }
    footer {
@@ -150,13 +152,13 @@
      flex-shrink: 0;
    }
    .footer-inner {
-     max-width: 400px;
+     max-width: 1200px;
      margin: 0 auto;
-     padding: 1.5rem 1.5rem 2rem 1.5rem;
+     padding: 1.5rem 4rem; /* Dobel dari 2rem */
      box-sizing: border-box;
      display: flex;
      flex-direction: column;
-     min-height: 180px;
+     min-height: 160px;
      justify-content: space-between;
    }
    .footer-top {
@@ -165,12 +167,12 @@
      gap: 0.75rem;
    }
    .footer-top i {
-     font-size: 1.75rem;
+     font-size: 1.5rem;
      color: #4caf50;
    }
    .footer-top span {
      font-weight: 700;
-     font-size: 1.25rem;
+     font-size: 1.125rem;
    }
    .footer-links {
      display: flex;
@@ -183,7 +185,7 @@
      color: #b0b0b0;
      text-decoration: none;
      font-weight: 300;
-     font-size: 1rem;
+     font-size: 0.875rem;
    }
    .footer-links a:hover {
      text-decoration: underline;
@@ -191,10 +193,77 @@
    .footer-bottom {
      text-align: center;
      font-weight: 300;
-     font-size: 0.85rem;
+     font-size: 0.75rem;
      color: #888888;
      user-select: none;
-     margin-top: 1.5rem;
+     margin-top: 1rem;
+   }
+   @media (max-width: 640px) {
+     main {
+       padding: 1rem 2rem; /* Dobel dari 1rem */
+     }
+     .header-inner {
+       padding: 0.75rem 2rem; /* Dobel dari 1rem */
+     }
+     .header-left span {
+       font-size: 1.25rem;
+     }
+     .header-right button {
+       font-size: 0.875rem;
+     }
+     .image-container img {
+       max-height: 250px;
+     }
+     .overlay-extended {
+       height: 200px;
+       padding: 0 2rem; /* Dobel dari 1rem */
+       background-image: url('https://via.placeholder.com/600x200/00000080/00000080.png');
+     }
+     .package-text {
+       font-size: 1rem;
+       padding: 0 2rem; /* Dobel dari 1rem */
+     }
+     .text-below-overlay {
+       padding: 0 2rem; /* Dobel dari 1rem */
+     }
+     .text-below-overlay h2 {
+       font-size: 1rem;
+     }
+     .text-below-overlay p {
+       font-size: 0.875rem;
+     }
+     .overlay-6-19 {
+       padding: 0 2rem; /* Dobel dari 1rem */
+       background-image: url('https://via.placeholder.com/300x95/00000080/00000080.png');
+     }
+     .centered-description {
+       font-size: 0.875rem;
+       padding: 0 2rem; /* Dobel dari 1rem */
+     }
+     .footer-inner {
+       padding: 1.5rem 2rem; /* Dobel dari 1rem */
+     }
+     .footer-top i {
+       font-size: 1.25rem;
+     }
+     .footer-top span {
+       font-size: 1rem;
+     }
+     .footer-links a {
+       font-size: 0.75rem;
+     }
+   }
+   @media (min-width: 641px) and (max-width: 1024px) {
+     .overlay-extended {
+       height: 250px;
+       background-image: url('https://via.placeholder.com/800x250/00000080/00000080.png');
+     }
+     .image-container img {
+       max-height: 300px;
+     }
+     .overlay-6-19 {
+       background-image: url('https://via.placeholder.com/400x126/00000080/00000080.png');
+     }
    }
   </style>
  </head>
@@ -215,17 +284,17 @@
    </div>
   </header>
   <main>
-   <h1 class="font-extrabold text-black text-4xl leading-tight mb-6">
+   <h1 class="font-extrabold text-black text-2xl sm:text-3xl md:text-4xl leading-tight mb-4 sm:mb-6">
     Hallo, Senang bertemu dengan mu developer ;)
    </h1>
-   <button class="inline-flex items-center gap-2 bg-blue-200 text-black font-semibold text-lg rounded-full px-8 py-3 mb-8 hover:bg-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400" type="button">
+   <button class="inline-flex items-center gap-2 bg-blue-200 text-black font-semibold text-base sm:text-lg rounded-full px-6 sm:px-8 py-2 sm:py-3 mb-6 sm:mb-8 hover:bg-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400" type="button">
     Developer
-    <svg aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <svg aria-hidden="true" class="h-4 sm:h-5 w-4 sm:w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
      <path d="M17 7l4 4m0 0l-4 4m4-4H3" stroke-linecap="round" stroke-linejoin="round"></path>
     </svg>
    </button>
    <div class="image-container">
-    <img alt="Black background" height="300" src="https://storage.googleapis.com/a1aa/image/15eb38c6-9c9f-4973-a771-0864e3f70e80.jpg" width="400"/>
+    <img alt="Black background" src="https://storage.googleapis.com/a1aa/image/15eb38c6-9c9f-4973-a771-0864e3f70e80.jpg" width="100%"/>
    </div>
    <div class="package-text">Package</div>
    <div class="overlay-extended"></div>
@@ -261,4 +330,4 @@
    </div>
   </footer>
  </body>
-</html>
+      </html>
