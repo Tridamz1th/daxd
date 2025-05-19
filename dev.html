@@ -308,7 +308,7 @@
     <div class="content-container">
      <div class="photo-container">
       <div class="photo-item">
-       <img id="developerPhoto" src="https://www.dropbox.com/scl/fi/qidqjnqrn96pebclj95ow/damz-1.png?rlkey=ish9x6xajhesmym80238gfjw8&st=i1y7l0i5&raw=1" alt="Developer Photo" class="rounded-photo"/>
+       <img id="developerPhoto" src="/daxd/res/pic/img1.png" alt="Developer Photo" class="rounded-photo"/>
        <span class="photo-desc">Tridamz1th<br>UI/HTML/CSS/JS/DATA/DEV daxd</span>
       </div>
      </div>
@@ -322,11 +322,11 @@
     <div class="content-container">
      <div class="photo-container source">
       <div class="photo-item">
-       <img src="https://www.dropbox.com/scl/fi/r2dkzugn3w3xparl8zb6u/oppa-1.png?rlkey=hy36763p1m9ac4uja4bs3ngdv&st=teqwrdz9&raw=1" alt="Source Contributor 1" class="rounded-photo"/>
+       <img src="/daxd/res/pic/img2.png" alt="Source Contributor 1" class="rounded-photo"/>
        <span class="photo-desc">Oppa334<br>TrollStore/Dopamine/Jailbreak</span>
       </div>
       <div class="photo-item">
-       <img src="https://www.dropbox.com/scl/fi/7rz2nxsjpu4c6rv10w8oj/nhutgg-1.png?rlkey=gaptj5f9a2nnguve3xxcaq1tz&st=au96y0gq&raw=1" alt="Source Contributor 2" class="rounded-photo"/>
+       <img src="/daxd/res/pic/img3.png" alt="Source Contributor 2" class="rounded-photo"/>
        <span class="photo-desc">Nhutgg<br>DNS/Esign/Other</span>
       </div>
      </div>
@@ -339,26 +339,29 @@
    <div id="easterEggMessage">Selamat, EasterEGG di temukan</div>
   </main>
   <audio id="easterEggAudio" loop>
-    <source src="bgg/sd/EasterEGG/RoiTaSeNgam.m4a" type="audio/mp4">
+    <source src="/daxd/bgg/sd/EasterEGG/RoiTaSeNgam.m4a" type="audio/mp4">
     Browser Anda tidak mendukung elemen audio.
   </audio>
   <script>
-    // JavaScript untuk Easter Egg
+    // JavaScript untuk Easter Egg dan pemutaran audio
     const developerPhoto = document.getElementById('developerPhoto');
     const easterEggAudio = document.getElementById('easterEggAudio');
     const easterEggMessage = document.getElementById('easterEggMessage');
+    const siteDomain = 'tridamz1th.github.io/daxd';
 
     // Fungsi untuk memutar audio
     function playEasterEggAudio() {
-      easterEggAudio.play().catch(error => {
-        console.error('Gagal memutar audio:', error);
-      });
-      localStorage.setItem('easterEggPlaying', 'true');
+      if (window.location.href.includes(siteDomain)) {
+        easterEggAudio.play().catch(error => {
+          console.error('Gagal memutar audio:', error);
+        });
+        localStorage.setItem('easterEggPlaying', 'true');
+      }
     }
 
     // Fungsi untuk memeriksa dan melanjutkan pemutaran audio
     function checkAudioPlayback() {
-      if (localStorage.getItem('easterEggPlaying') === 'true') {
+      if (localStorage.getItem('easterEggPlaying') === 'true' && window.location.href.includes(siteDomain)) {
         easterEggAudio.play().catch(error => {
           console.error('Gagal memutar audio:', error);
         });
@@ -386,22 +389,20 @@
     document.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', (event) => {
         const href = link.getAttribute('href');
-        // Hentikan audio jika navigasi ke domain lain
-        if (href && !href.startsWith('/') && !href.startsWith('#') && !href.includes('tridamz1th.github.io')) {
+        if (href && !href.startsWith('/') && !href.startsWith('#') && !href.includes(siteDomain)) {
           easterEggAudio.pause();
           localStorage.removeItem('easterEggPlaying');
         }
       });
     });
 
-    // Hentikan audio saat tab ditutup
+    // Hentikan audio saat tab ditutup atau navigasi keluar
     window.addEventListener('beforeunload', () => {
-      // Hanya hentikan jika tidak navigasi di dalam situs
-      if (!window.location.href.includes('tridamz1th.github.io')) {
+      if (!window.location.href.includes(siteDomain)) {
         easterEggAudio.pause();
         localStorage.removeItem('easterEggPlaying');
       }
     });
   </script>
 </body>
-</html>
+  </html
