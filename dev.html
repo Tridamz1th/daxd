@@ -100,7 +100,7 @@
      padding: 0.75rem 4rem;
      box-sizing: border-box;
      pointer-events: none;
-     user-select: personally;
+     user-select: none;
    }
    .section-container {
      width: 100%;
@@ -143,6 +143,7 @@
      height: 80px;
      border-radius: 50%;
      object-fit: cover;
+     cursor: pointer; /* Menambahkan cursor pointer untuk interaksi */
    }
    .photo-desc {
      font-size: 0.875rem;
@@ -189,6 +190,22 @@
      color: black;
      text-align: center;
      padding: 0;
+   }
+   /* Styling untuk pesan Easter Egg */
+   #easterEggMessage {
+     position: fixed;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     background-color: rgba(0, 0, 0, 0.8);
+     color: white;
+     padding: 1rem 2rem;
+     border-radius: 0.5rem;
+     font-size: 1.25rem;
+     font-weight: 700;
+     z-index: 100;
+     display: none;
+     text-align: center;
    }
    @media (max-width: 640px) {
      main {
@@ -246,6 +263,10 @@
        font-size: 0.75rem;
        max-width: 200px;
      }
+     #easterEggMessage {
+       font-size: 1rem;
+       padding: 0.75rem 1.5rem;
+     }
    }
    @media (min-width: 641px) and (max-width: 1024px) {
      .overlay-extended {
@@ -288,10 +309,8 @@
     <div class="content-container">
      <div class="photo-container">
       <div class="photo-item">
-       <img src="https://www.dropbox.com/scl/fi/qidqjnqrn96pebclj95ow/damz-1.png?rlkey=ish9x6xajhesmym80238gfjw8&st=i1y7l0i5&raw=1" alt="Developer Photo" class="rounded-photo"/>
-       <span class="photo-desc">Tridamz1th
-
-UI/HTML/CSS/JS/DATA/DEV daxd</span>
+       <img id="developerPhoto" src="https://www.dropbox.com/scl/fi/qidqjnqrn96pebclj95ow/damz-1.png?rlkey=ish9x6xajhesmym80238gfjw8&st=i1y7l0i5&raw=1" alt="Developer Photo" class="rounded-photo"/>
+       <span class="photo-desc">Tridamz1th<br>UI/HTML/CSS/JS/DATA/DEV daxd</span>
       </div>
      </div>
      <div class="text-container">
@@ -305,16 +324,11 @@ UI/HTML/CSS/JS/DATA/DEV daxd</span>
      <div class="photo-container source">
       <div class="photo-item">
        <img src="https://www.dropbox.com/scl/fi/r2dkzugn3w3xparl8zb6u/oppa-1.png?rlkey=hy36763p1m9ac4uja4bs3ngdv&st=teqwrdz9&raw=1" alt="Source Contributor 1" class="rounded-photo"/>
-       <span class="photo-desc">Oppa334
-
-TrollStore/Dopamine/Jailbreak</span>
+       <span class="photo-desc">Oppa334<br>TrollStore/Dopamine/Jailbreak</span>
       </div>
       <div class="photo-item">
        <img src="https://www.dropbox.com/scl/fi/7rz2nxsjpu4c6rv10w8oj/nhutgg-1.png?rlkey=gaptj5f9a2nnguve3xxcaq1tz&st=au96y0gq&raw=1" alt="Source Contributor 2" class="rounded-photo"/>
-       <span class="photo-desc">Nhutgg
-
-
-DNS/Esign/Other</span>
+       <span class="photo-desc">Nhutgg<br>DNS/Esign/Other</span>
       </div>
      </div>
      <div class="text-container">
@@ -323,6 +337,38 @@ DNS/Esign/Other</span>
     </div>
     <div class="overlay-6-19"></div>
    </div>
+   <!-- Elemen untuk pesan Easter Egg -->
+   <div id="easterEggMessage">Selamat, EasterEGG di temukan</div>
   </main>
+  <!-- Audio untuk Easter Egg -->
+  <audio id="easterEggAudio" loop>
+    <source src="bgg/sd/EasterEGG/RoiTaSeNgam.m4a" type="audio/mp4">
+    Browser Anda tidak mendukung elemen audio.
+  </audio>
+  <script>
+    // JavaScript untuk Easter Egg
+    const developerPhoto = document.getElementById('developerPhoto');
+    const easterEggAudio = document.getElementById('easterEggAudio');
+    const easterEggMessage = document.getElementById('easterEggMessage');
+    let clickCount = 0;
+
+    developerPhoto.addEventListener('click', () => {
+      clickCount++;
+      if (clickCount === 10) {
+        // Putar audio
+        easterEggAudio.play().catch(error => {
+          console.error('Gagal memutar audio:', error);
+        });
+        // Tampilkan pesan
+        easterEggMessage.style.display = 'block';
+        // Sembunyikan pesan setelah 5 detik
+        setTimeout(() => {
+          easterEggMessage.style.display = 'none';
+        }, 5000);
+        // Reset click count
+        clickCount = 0;
+      }
+    });
+  </script>
 </body>
-</html>
+  </html>
