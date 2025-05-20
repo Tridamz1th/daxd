@@ -59,12 +59,19 @@
      align-items: center;
      gap: 0.75rem;
    }
-   .header-right button {
-     background: none;
-     border: none;
-     font-size: 1rem;
-     color: black;
-     cursor: pointer;
+   .profile-icon {
+     width: 40px;
+     height: 40px;
+     border-radius: 50%;
+     overflow: hidden;
+   }
+   .profile-icon img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+   }
+   .bg-black-amoled {
+     background-color: #1C2526;
    }
    .image-container {
      position: relative;
@@ -88,10 +95,12 @@
      font-weight: 700;
      font-size: 1.25rem;
    }
-   .video-extended {
+   .overlay-extended {
      width: 100%;
      height: 300px;
-     object-fit: cover;
+     background-image: url('https://via.placeholder.com/1200x300/00000080/00000080.png');
+     background-size: cover;
+     background-position: center;
      border-radius: 1.5rem;
      margin: 0 auto;
      padding: 0 4rem;
@@ -235,15 +244,20 @@
      .header-left span {
        font-size: 1.25rem;
      }
-     .header-right button {
-       font-size: 0.875rem;
+     .header-right {
+       gap: 0.5rem;
+     }
+     .profile-icon {
+       width: 32px;
+       height: 32px;
      }
      .image-container img {
        max-height: 250px;
      }
-     .video-extended {
+     .overlay-extended {
        height: 200px;
        padding: 0 2rem;
+       background-image: url('https://via.placeholder.com/600x200/00000080/00000080.png');
      }
      .package-text {
        font-size: 1rem;
@@ -287,10 +301,6 @@
      h1 {
        margin-top: 2rem !important;
      }
-     .hello-container {
-       min-width: 160px;
-       height: 1.8em;
-     }
      /* Responsivitas untuk persegi panjang */
      .rectangle-container {
        padding-left: 2rem;
@@ -311,8 +321,9 @@
      }
    }
    @media (min-width: 641px) and (max-width: 1024px) {
-     .video-extended {
+     .overlay-extended {
        height: 250px;
+       background-image: url('https://via.placeholder.com/800x250/00000080/00000080.png');
      }
      .image-container img {
        max-height: 300px;
@@ -332,13 +343,18 @@
     <div class="header-left">
      <span>daxd</span>
     </div>
+    <div class="header-center">
+     <button 
+       class="inline-flex items-center bg-gray-200 text-black font-semibold text-base sm:text-lg rounded-full px-4 sm:px-6 py-1 sm:py-2" 
+       type="button"
+     >
+      2.0 Flash
+     </button>
+    </div>
     <div class="header-right">
-     <button aria-label="Search" type="button">
-      <i class="fas fa-search"></i>
-     </button>
-     <button aria-label="Settings" type="button">
-      <i class="fas fa-bars"></i>
-     </button>
+     <div class="profile-icon">
+       <img src="png/profile.png" alt="Profile Image">
+     </div>
     </div>
    </div>
   </header>
@@ -361,9 +377,6 @@
      <path d="M17 7l4 4m0 0l-4 4m4-4H3" stroke-linecap="round" stroke-linejoin="round"></path>
     </svg>
    </button>
-   <div class="image-container">
-    <img alt="Black background" src="https://storage.googleapis.com/a1aa/image/15eb38c6-9c9f-4973-a771-0864e3f70e80.jpg" width="100%"/>
-   </div>
    <div class="package-text">Package</div>
    <!-- Tiga persegi panjang dengan foto PNG dan teks -->
    <div class="flex justify-between gap-2 max-w-3xl mx-auto mt-4 px-4 rectangle-container">
@@ -380,11 +393,7 @@
        <span class="mt-12 text-center font-semibold">DNS</span>
      </div>
    </div>
-   <!-- Video menggantikan overlay-extended -->
-   <video class="video-extended" autoplay loop muted playsinline>
-     <source src="./vi11/banner45.mp4" type="video/mp4">
-     Your browser does not support the video tag.
-   </video>
+   <div class="overlay-extended"></div>
    <div class="text-below-overlay">
     <h2>Package</h2>
     <p>Website ini menyediakan berbagai informasi dan layanan terkait pengembangan aplikasi dengan fokus pada teknologi terbaru dan solusi inovatif untuk developer.</p>
@@ -452,4 +461,4 @@
    setInterval(changeHello, 3000);
   </script>
  </body>
-    </html>
+ </html>
