@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="id">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>daxd Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;700&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+Arabic:wght@400;700&family=Noto+Sans+Devanagari:wght@400;700&family=Noto+Sans+Thai:wght@400;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+   body, html {
+     margin: 0;
+     padding: 0;
+     height: 100%;
+     font-family: "Google Sans", Arial, sans-serif;
+     background: linear-gradient(135deg, #f0f2f5 0%, #e0e7ff 100%);
+     color: #1a202c;
+     display: flex;
+     flex-direction: column;
+     min-height: 100vh;
+     overflow-x: hidden;
+   }
+   main {
+     flex-grow: 1;
+     width: 100%;
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 2rem 4rem;
+     box-sizing: border-box;
+   }
+   header {
+     position: sticky;
+     top: 0;
+     z-index: 50;
+     background: linear-gradient(90deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 242, 245, 0.9) 100%);
+     backdrop-filter: blur(10px);
+     -webkit-backdrop-filter: blur(10px);
+     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+     width: 100%;
+     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+   }
+   .header-inner {
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 0.75rem 4rem;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+   }
+   .header-left {
+     display: flex;
+     align-items: center;
+     gap: 0.5rem;
+   }
+   .header-left span {
+     font-weight: 700;
+     font-size: 1.8rem;
+     color: #2d3748;
+     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+   }
+   .header-center {
+     margin-left: -2rem;
+   }
+   .header-right {
+     display: flex;
+     align-items: center;
+     gap: 1rem;
+   }
+   .profile-icon {
+     width: 45px;
+     height: 45px;
+     border-radius: 50%;
+     overflow: hidden;
+     border: 2px solid #ffffff;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+     transition: transform 0.3s ease;
+   }
+   .profile-icon img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     transition: filter 0.3s ease;
+   }
+   .profile-icon:hover {
+     transform: scale(1.1);
+   }
+   .profile-icon:hover img {
+     filter: brightness(1.1);
+   }
+   footer {
+     background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+     color: #e2e8f0;
+     width: 100%;
+     flex-shrink: 0;
+     border-top: 1px solid rgba(255, 255, 255, 0.1);
+   }
+   .footer-inner {
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 2rem 4rem;
+     box-sizing: border-box;
+     display: flex;
+     flex-direction: column;
+     min-height: 160px;
+     justify-content: space-between;
+   }
+   .footer-top {
+     display: flex;
+     align-items: center;
+     gap: 1rem;
+   }
+   .footer-top i {
+     font-size: 1.8rem;
+     color: #48bb78;
+     text-shadow: 0 0 5px rgba(72, 187, 120, 0.5);
+   }
+   .footer-top span {
+     font-weight: 700;
+     font-size: 1.3rem;
+     color: #e2e8f0;
+   }
+   .footer-links {
+     display: flex;
+     flex-direction: column;
+     gap: 0.7rem;
+     color: #a0aec0;
+     margin-top: 1.5rem;
+   }
+   .footer-links a {
+     color: #a0aec0;
+     text-decoration: none;
+     font-weight: 400;
+     font-size: 1rem;
+     transition: color 0.3s ease;
+   }
+   .footer-links a:hover {
+     color: #ffffff;
+     text-decoration: underline;
+   }
+   .footer-bottom {
+     text-align: center;
+     font-weight: 400;
+     font-size: 0.9rem;
+     color: #a0aec0;
+     user-select: none;
+     margin-top: 1.5rem;
+     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+   }
+   /* Animasi Fade untuk Hello */
+   .hello-container {
+     display: block;
+     position: relative;
+     min-width: 200px;
+     height: 2.5em;
+     margin-bottom: 0.75rem;
+     font-family: "Noto Sans", "Noto Sans Arabic", "Noto Sans Devanagari", "Noto Sans Thai", "Noto Sans JP", "Noto Sans KR", "Noto Sans SC", "Google Sans", sans-serif;
+   }
+   .hello-text {
+     display: block;
+     opacity: 0;
+     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+     will-change: opacity, transform;
+     transform: translateY(10px);
+   }
+   .hello-text.active {
+     opacity: 1;
+     transform: translateY(0);
+   }
+   /* Styling untuk Card Android dan iOS */
+   .feature-card {
+     border-radius: 1.5rem;
+     padding: 2rem;
+     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.05);
+     transition: all 0.4s ease;
+     position: relative;
+     overflow: hidden;
+     margin-bottom: 2rem;
+   }
+   .feature-card:hover {
+     transform: scale(1.05) translateY(-10px);
+     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.1);
+   }
+   .feature-card::before {
+     content: "";
+     position: absolute;
+     top: -50%;
+     left: -50%;
+     width: 200%;
+     height: 200%;
+     background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+     z-index: 0;
+     transition: transform 0.6s ease;
+   }
+   .feature-card:hover::before {
+     transform: rotate(45deg);
+   }
+   .feature-card-content {
+     position: relative;
+     z-index: 1;
+   }
+   .android-card {
+     background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+     border-left: 6px solid #4caf50;
+   }
+   .android-card .icon {
+     color: #4caf50;
+   }
+   .ios-card {
+     background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+     border-left: 6px solid #2196f3;
+   }
+   .ios-card .icon {
+     color: #2196f3;
+   }
+   .feature-card h2 {
+     font-size: 2.5rem;
+     font-weight: 700;
+     color: #2d3748;
+     margin-bottom: 1rem;
+     text-transform: uppercase;
+     letter-spacing: 1px;
+   }
+   .feature-card p {
+     font-size: 1.1rem;
+     color: #4a5568;
+     line-height: 1.8;
+     max-width: 100%;
+   }
+   .feature-card .icon {
+     font-size: 2.5rem;
+     margin-bottom: 1rem;
+     transition: transform 0.3s ease;
+   }
+   .feature-card:hover .icon {
+     transform: rotate(15deg) scale(1.2);
+   }
+   @media (max-width: 640px) {
+     main {
+       padding: 1rem 2rem;
+     }
+     .header-inner {
+       padding: 0.75rem 2rem;
+     }
+     .header-left span {
+       font-size: 1.5rem;
+     }
+     .header-center {
+       margin-left: -1rem;
+     }
+     .header-right {
+       gap: 0.5rem;
+     }
+     .profile-icon {
+       width: 35px;
+       height: 35px;
+     }
+     .feature-card {
+       padding: 1.5rem;
+       border-radius: 1rem;
+     }
+     .feature-card h2 {
+       font-size: 1.8rem;
+     }
+     .feature-card p {
+       font-size: 1rem;
+     }
+     .feature-card .icon {
+       font-size: 2rem;
+     }
+     .footer-inner {
+       padding: 1.5rem 2rem;
+     }
+     .footer-top i {
+       font-size: 1.5rem;
+     }
+     .footer-top span {
+       font-size: 1.1rem;
+     }
+     .footer-links a {
+       font-size: 0.9rem;
+     }
+     h1 {
+       margin-top: 2rem !important;
+     }
+   }
+   h1 {
+     margin-top: 4rem;
+   }
+  </style>
+ </head>
+ <body>
+  <header>
+   <div class="header-inner">
+    <div class="header-left">
+     <span>daxd</span>
+    </div>
+    <div class="header-center">
+     <button 
+       class="inline-flex items-center bg-gradient-to-r from-gray-200 to-gray-300 text-gray-800 font-semibold text-base sm:text-lg rounded-full px-6 sm:px-8 py-2 sm:py-3 hover:from-gray-300 hover:to-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-all duration-300"
+       type="button"
+     >
+      Perbaikan
+     </button>
+    </div>
+    <div class="header-right">
+     <div class="profile-icon">
+       <img src="png/png.png" alt="Profile Image">
+     </div>
+    </div>
+   </div>
+  </header>
+  <main>
+   <h1 class="font-extrabold text-gray-900 text-4xl sm:text-5xl md:text-6xl leading-tight mb-4 sm:mb-6 animate-pulse">
+     <span class="hello-container">
+       <span class="hello-text active">Hallo</span>
+     </span>
+   </h1>
+   <p class="font-bold text-gray-800 text-2xl sm:text-2xl md:text-3xl leading-tight mb-6 sm:mb-8">
+     Lakukan apa yang anda mau dan memberontak tentang batasan di ponsel anda
+   </p>
+   <button 
+     class="inline-flex items-center gap-3 bg-gradient-to-r from-blue-200 to-blue-300 text-gray-800 font-semibold text-base sm:text-lg rounded-full px-8 sm:px-10 py-3 sm:py-4 mb-8 sm:mb-12 hover:from-blue-300 hover:to-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 shadow-md hover:shadow-lg"
+     type="button" 
+     onclick="window.location.href='dev.html'"
+   >
+    Developer
+    <svg aria-hidden="true" class="h-5 sm:h-6 w-5 sm:w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+     <path d="M17 7l4 4m0 0l-4 4m4-4H3" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+   </button>
+   <!-- Bagian Android -->
+   <div class="feature-card android-card mb-8">
+     <div class="feature-card-content">
+       <i class="fab fa-android icon"></i>
+       <h2 class="text-3xl font-bold text-gray-900 mb-3">Android</h2>
+       <p class="text-gray-700 leading-relaxed">
+         A
+       </p>
+     </div>
+   </div>
+   <!-- Bagian iOS -->
+   <div class="feature-card ios-card">
+     <div class="feature-card-content">
+       <i class="fab fa-apple icon"></i>
+       <h2 class="text-3xl font-bold text-gray-900 mb-3">iOS</h2>
+       <p class="text-gray-700 leading-relaxed">
+         B
+       </p>
+     </div>
+   </div>
+  </main>
+  <footer>
+   <div class="footer-inner">
+    <div class="footer-top">
+     <i class="fab fa-android"></i>
+     <span>daxd</span>
+    </div>
+    <div class="footer-links">
+     <a href="#" tabindex="0">Kontak developer</a>
+     <a href="#" tabindex="0">Repository</a>
+     <a href="#" tabindex="0">Github</a>
+     <a href="#" tabindex="0">LinkIn</a>
+    </div>
+    <div class="footer-bottom">
+     <div>daxd</div>
+     <div>@copyright 2025-2026</div>
+    </div>
+   </div>
+  </footer>
+  <script>
+   const hellos = [
+     "Hai", // Indonesia (Latin)
+     "Hello", // Inggris (Latin)
+     "Hola", // Spanyol (Latin)
+     "Bonjour", // Prancis (Latin)
+     "Ciao", // Italia (Latin)
+     "こんにちは", // Jepang (Hiragana)
+     "Halo", // Polandia (Latin)
+     "Привет", // Rusia (Cyrillic)
+     "Oi", // Portugis (Latin)
+     "안녕하세요", // Korea (Hangul)
+     "สวัสดี", // Thailand (Thai)
+     "你好", // Mandarin (Hanzi)
+     "Merhaba", // Turki (Latin)
+     "مرحبا", // Arab (Arab)
+     "नमस्ते", // Hindi (Devanagari)
+     "Xin chào" // Vietnam (Latin dengan diakritik)
+   ];
+   const helloText = document.querySelector('.hello-text');
+   let index = 0;
+
+   function changeHello() {
+     helloText.classList.remove('active');
+     setTimeout(() => {
+       helloText.textContent = hellos[index];
+       index = (index + 1) % hellos.length;
+       helloText.classList.add('active');
+     }, 500);
+   }
+
+   changeHello();
+   setInterval(changeHello, 3000);
+  </script>
+ </body>
+</html>
