@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="id">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>daxd Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;700&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+Arabic:wght@400;700&family=Noto+Sans+Devanagari:wght@400;700&family=Noto+Sans+Thai:wght@400;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+   body, html {
+     margin: 0;
+     padding: 0;
+     height: 100%;
+     font-family: "Google Sans", Arial, sans-serif;
+     background-color: white;
+     color: black;
+     display: flex;
+     flex-direction: column;
+     min-height: 100vh;
+   }
+   main {
+     flex-grow: 1;
+     width: 100%;
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 2rem 4rem;
+     box-sizing: border-box;
+   }
+   header {
+     position: sticky;
+     top: 0;
+     z-index: 50;
+     background-color: rgba(255, 255, 255, 0.7);
+     backdrop-filter: blur(10px);
+     -webkit-backdrop-filter: blur(10px);
+     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+     width: 100%;
+   }
+   .header-inner {
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 0.75rem 4rem;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+   }
+   .header-left {
+     display: flex;
+     align-items: center;
+     gap: 0.5rem;
+   }
+   .header-left span {
+     font-weight: 700;
+     font-size: 1.5rem;
+   }
+   .header-right {
+     display: flex;
+     align-items: center;
+     gap: 0.75rem;
+   }
+   .profile-icon {
+     width: 40px;
+     height: 40px;
+     border-radius: 50%;
+     overflow: hidden;
+   }
+   .profile-icon img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+   }
+   .bg-black-amoled {
+     background-color: #1C2526;
+   }
+   .image-container {
+     position: relative;
+     border-radius: 1.5rem;
+     overflow: hidden;
+     margin-bottom: 2rem;
+   }
+   .image-container img {
+     width: 100%;
+     height: auto;
+     max-height: 400px;
+     object-fit: cover;
+     border-radius: 1.5rem;
+     display: block;
+   }
+   .package-text {
+     margin-top: 0;
+     margin-bottom: 1rem;
+     padding: 0 4rem;
+     text-align: center;
+     font-weight: 700;
+     font-size: 1.25rem;
+   }
+   .overlay-extended {
+     width: 100%;
+     height: 300px;
+     background-image: url('https://via.placeholder.com/1200x300/00000080/00000080.png');
+     background-size: cover;
+     background-position: center;
+     border-radius: 1.5rem;
+     margin: 0 auto;
+     padding: 0 4rem;
+     box-sizing: border-box;
+     pointer-events: none;
+     user-select: none;
+   }
+   .text-below-overlay {
+     width: 100%;
+     max-width: 1200px;
+     margin: 1rem auto 0 auto;
+     padding: 0 4rem;
+     color: #4a4a4a;
+     font-weight: 300;
+     font-size: 1rem;
+   }
+   .text-below-overlay h2 {
+     font-weight: 700;
+     font-size: 1.125rem;
+     margin-bottom: 0.5rem;
+     color: black;
+     text-align: left;
+     padding: 0;
+   }
+   .text-below-overlay p {
+     margin: 0;
+     line-height: 1.5;
+     text-align: left;
+     padding: 0;
+   }
+   .overlay-6-19 {
+     width: 100%;
+     aspect-ratio: 6 / 19;
+     background-image: url('https://via.placeholder.com/600x190/00000080/00000080.png');
+     background-size: cover;
+     background-position: center;
+     border-radius: 1.5rem;
+     margin: 1rem auto 0 auto;
+     padding: 0 4rem;
+     box-sizing: border-box;
+     pointer-events: none;
+     user-select: none;
+     max-height: 80px;
+   }
+   .centered-description {
+     width: 100%;
+     max-width: 1200px;
+     margin: 1rem auto 0 auto;
+     padding: 0 4rem;
+     color: #4a4a4a;
+     font-weight: 300;
+     font-size: 1rem;
+     text-align: center;
+   }
+   .centered-description h2 {
+     font-weight: 700;
+     font-size: 1.25rem;
+     margin-bottom: 0.5rem;
+     color: black;
+     text-align: center;
+     padding: 0 4rem;
+   }
+   footer {
+     background-color: #000000;
+     color: white;
+     width: 100%;
+     flex-shrink: 0;
+   }
+   .footer-inner {
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 1.5rem 4rem;
+     box-sizing: border-box;
+     display: flex;
+     flex-direction: column;
+     min-height: 160px;
+     justify-content: space-between;
+   }
+   .footer-top {
+     display: flex;
+     align-items: center;
+     gap: 0.75rem;
+   }
+   .footer-top i {
+     font-size: 1.5rem;
+     color: #4caf50;
+   }
+   .footer-top span {
+     font-weight: 700;
+     font-size: 1.125rem;
+   }
+   .footer-links {
+     display: flex;
+     flex-direction: column;
+     gap: 0.5rem;
+     color: #b0b0b0;
+     margin-top: 1rem;
+   }
+   .footer-links a {
+     color: #b0b0b0;
+     text-decoration: none;
+     font-weight: 300;
+     font-size: 0.875rem;
+   }
+   .footer-links a:hover {
+     text-decoration: underline;
+   }
+   .footer-bottom {
+     text-align: center;
+     font-weight: 300;
+     font-size: 0.75rem;
+     color: #888888;
+     user-select: none;
+     margin-top: 1rem;
+   }
+   /* Animasi Fade untuk Hello */
+   .hello-container {
+     display: block;
+     position: relative;
+     min-width: 200px; /* Untuk teks terlebar, misal: 안녕하세요 */
+     height: 2em; /* Untuk aksara tinggi */
+     margin-bottom: 0.5rem;
+     font-family: "Noto Sans", "Noto Sans Arabic", "Noto Sans Devanagari", "Noto Sans Thai", "Noto Sans JP", "Noto Sans KR", "Noto Sans SC", "Google Sans", sans-serif;
+   }
+   .hello-text {
+     display: block;
+     opacity: 0;
+     transition: opacity 0.5s ease-in-out; /* Fade in/out 0.5 detik */
+     will-change: opacity;
+   }
+   .hello-text.active {
+     opacity: 1;
+   }
+   @media (max-width: 640px) {
+     main {
+       padding: 1rem 2rem;
+     }
+     .header-inner {
+       padding: 0.75rem 2rem;
+     }
+     .header-left span {
+       font-size: 1.25rem;
+     }
+     .header-right {
+       gap: 0.5rem;
+     }
+     .profile-icon {
+       width: 32px;
+       height: 32px;
+     }
+     .image-container img {
+       max-height: 250px;
+     }
+     .overlay-extended {
+       height: 200px;
+       padding: 0 2rem;
+       background-image: url('https://via.placeholder.com/600x200/00000080/00000080.png');
+     }
+     .package-text {
+       font-size: 1rem;
+       padding: 0 2rem;
+     }
+     .text-below-overlay {
+       padding: 0 2rem;
+     }
+     .text-below-overlay h2 {
+       font-size: 1rem;
+       padding: 0;
+     }
+     .text-below-overlay p {
+       font-size: 0.875rem;
+       padding: 0;
+     }
+     .overlay-6-19 {
+       padding: 0 2rem;
+       background-image: url('https://via.placeholder.com/300x95/00000080/00000080.png');
+     }
+     .centered-description {
+       padding: 0 2rem;
+       font-size: 0.875rem;
+     }
+     .centered-description h2 {
+       font-size: 1rem;
+       padding: 0 2rem;
+     }
+     .footer-inner {
+       padding: 1.5rem 2rem;
+     }
+     .footer-top i {
+       font-size: 1.25rem;
+     }
+     .footer-top span {
+       font-size: 1rem;
+     }
+     .footer-links a {
+       font-size: 0.75rem;
+     }
+     h1 {
+       margin-top: 2rem !important;
+     }
+     /* Responsivitas untuk persegi panjang */
+     .rectangle-container {
+       padding-left: 2rem;
+       padding-right: 2rem;
+     }
+     .rectangle {
+       width: 6rem; /* w-24 */
+       height: 10rem; /* h-40 */
+     }
+     .rectangle img {
+       width: 2.5rem; /* w-10 */
+       height: 2.5rem; /* h-10 */
+       margin-top: 1.5rem; /* mt-6 */
+     }
+     .rectangle span {
+       font-size: 0.875rem; /* text-sm */
+       margin-top: 2rem; /* mt-8 */
+     }
+   }
+   @media (min-width: 641px) and (max-width: 1024px) {
+     .overlay-extended {
+       height: 250px;
+       background-image: url('https://via.placeholder.com/800x250/00000080/00000080.png');
+     }
+     .image-container img {
+       max-height: 300px;
+     }
+     .overlay-6-19 {
+       background-image: url('https://via.placeholder.com/400x126/00000080/00000080.png');
+     }
+   }
+   h1 {
+     margin-top: 4rem;
+   }
+  </style>
+ </head>
+ <body>
+  <header>
+   <div class="header-inner">
+    <div class="header-left">
+     <span>daxd</span>
+    </div>
+    <div class="header-center">
+     <button 
+       class="inline-flex items-center bg-gray-200 text-black font-semibold text-base sm:text-lg rounded-full px-4 sm:px-6 py-1 sm:py-2" 
+       type="button"
+     >
+      Perbaikan
+     </button>
+    </div>
+    <div class="header-right">
+     <div class="profile-icon">
+       <img src="png/profile.png" alt="Profile Image">
+     </div>
+    </div>
+   </div>
+  </header>
+  <main>
+   <h1 class="font-extrabold text-black text-4xl sm:text-5xl md:text-6xl leading-tight mb-2">
+     <span class="hello-container">
+       <span class="hello-text active">Hallo</span>
+     </span>
+   </h1>
+   <p class="font-bold text-black text-2xl sm:text-2xl md:text-2xl leading-tight mb-4 sm:mb-6">
+     Lakukan apa yang anda mau dan memberontak tentang batasan di ponsel anda
+   </p>
+   <button 
+     class="inline-flex items-center gap-2 bg-blue-200 text-black font-semibold text-base sm:text-lg rounded-full px-6 sm:px-8 py-2 sm:py-3 mb-6 sm:mb-8 hover:bg-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400" 
+     type="button" 
+     onclick="window.location.href='dev.html'"
+   >
+    Developer
+    <svg aria-hidden="true" class="h-4 sm:h-5 w-4 sm:w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+     <path d="M17 7l4 4m0 0l-4 4m4-4H3" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+   </button>
+   <div class="package-text">Package</div>
+   <!-- Tiga persegi panjang dengan foto PNG dan teks -->
+   <div class="flex justify-between gap-2 max-w-3xl mx-auto mt-4 px-4 rectangle-container">
+     <div class="w-32 h-48 bg-blue-200 rounded-lg flex flex-col items-center rectangle">
+       <img src="https://via.placeholder.com/64x64/000000/FFFFFF?text=A" alt="Android Icon" class="w-16 h-16 rounded-full mt-8"/>
+       <span class="mt-12 text-center font-semibold">Android</span>
+     </div>
+     <div class="w-32 h-48 bg-blue-200 rounded-lg flex flex-col items-center rectangle">
+       <img src="https://via.placeholder.com/64x64/000000/FFFFFF?text=I" alt="IOS Icon" class="w-16 h-16 rounded-full mt-8"/>
+       <span class="mt-12 text-center font-semibold">IOS</span>
+     </div>
+     <div class="w-32 h-48 bg-blue-200 rounded-lg flex flex-col items-center rectangle">
+       <img src="https://via.placeholder.com/64x64/000000/FFFFFF?text=D" alt="DNS Icon" class="w-16 h-16 rounded-full mt-8"/>
+       <span class="mt-12 text-center font-semibold">DNS</span>
+     </div>
+   </div>
+   <div class="overlay-extended"></div>
+   <div class="text-below-overlay">
+    <h2>Package</h2>
+    <p>Website ini menyediakan berbagai informasi dan layanan terkait pengembangan aplikasi dengan fokus pada teknologi terbaru dan solusi inovatif untuk developer.</p>
+   </div>
+   <div class="text-below-overlay">
+    <h2>Package</h2>
+    <p>Website ini menyediakan berbagai informasi dan layanan terkait pengembangan aplikasi dengan fokus pada teknologi terbaru dan solusi inovatif untuk developer.</p>
+    <div class="overlay-6-19"></div>
+   </div>
+   <div class="centered-description">
+    <h2>Catatan</h2>
+    <p>Ayo, developer! Wujudkan ide kreatifmu dengan HTML, CSS, JS, PHP, dan teknologi lainnya. Terus belajar, coding, dan ciptakan solusi inovatif yang mengubah dunia!</p>
+   </div>
+  </main>
+  <footer>
+   <div class="footer-inner">
+    <div class="footer-top">
+     <i class="fab fa-android" aria-hidden="true"></i>
+     <span>daxd</span>
+    </div>
+    <div class="footer-links">
+     <a href="#" tabindex="0">Kontak developer</a>
+     <a href="#" tabindex="0">Repository</a>
+     <a href="#" tabindex="0">Github</a>
+     <a href="#" tabindex="0">LinkIn</a>
+    </div>
+    <div class="footer-bottom">
+     <div>daxd</div>
+     <div>@copyright 2025-2026</div>
+    </div>
+   </div>
+  </footer>
+  <script>
+   const hellos = [
+     "Hai", // Indonesia (Latin)
+     "Hello", // Inggris (Latin)
+     "Hola", // Spanyol (Latin)
+     "Bonjour", // Prancis (Latin)
+     "Ciao", // Italia (Latin)
+     "こんにちは", // Jepang (Hiragana)
+     "Halo", // Polandia (Latin)
+     "Привет", // Rusia (Cyrillic)
+     "Oi", // Portugis (Latin)
+     "안녕하세요", // Korea (Hangul)
+     "สวัสดี", // Thailand (Thai)
+     "你好", // Mandarin (Hanzi)
+     "Merhaba", // Turki (Latin)
+     "مرحبا", // Arab (Arab)
+     "नमस्ते", // Hindi (Devanagari)
+     "Xin chào" // Vietnam (Latin dengan diakritik)
+   ];
+   const helloText = document.querySelector('.hello-text');
+   let index = 0;
+
+   function changeHello() {
+     helloText.classList.remove('active');
+     setTimeout(() => {
+       helloText.textContent = hellos[index];
+       index = (index + 1) % hellos.length;
+       helloText.classList.add('active');
+     }, 500);
+   }
+
+   changeHello();
+   setInterval(changeHello, 3000);
+  </script>
+ </body>
+</html>
