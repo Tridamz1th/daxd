@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="id">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>About Developer & Source</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;700&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+Arabic:wght@400;700&family=Noto+Sans+Devanagari:wght@400;700&family=Noto+Sans+Thai:wght@400;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+   body, html {
+     margin: 0;
+     padding: 0;
+     height: 100%;
+     font-family: "Google Sans", Arial, sans-serif;
+     background-color: white;
+     color: black;
+     display: flex;
+     flex-direction: column;
+     min-height: 100vh;
+   }
+   main {
+     flex-grow: 1;
+     width: 100%;
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 2rem 0;
+     box-sizing: border-box;
+   }
+   header {
+     position: sticky;
+     top: 0;
+     z-index: 50;
+     background-color: rgba(255, 255, 255, 0.7);
+     backdrop-filter: blur(10px);
+     -webkit-backdrop-filter: blur(10px);
+     border-bottom: 1px solid rgba(0, 1, 0, 0.1);
+     width: 100%;
+   }
+   .header-inner {
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 0.75rem 4rem;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+   }
+   .header-left {
+     display: flex;
+     align-items: center;
+     gap: 0.5rem;
+   }
+   .header-left span {
+     font-weight: 700;
+     font-size: 1.5rem;
+   }
+   .header-right {
+     display: flex;
+     align-items: center;
+     gap: 0.75rem;
+   }
+   .header-right a {
+     background: none;
+     border: none;
+     font-size: 1rem;
+     color: black;
+     cursor: pointer;
+     text-decoration: none;
+   }
+   .image-container {
+     position: relative;
+     border-radius: 1.5rem;
+     overflow: hidden;
+     margin-bottom: 2rem;
+   }
+   .image-container img {
+     width: 100%;
+     height: auto;
+     max-height: 400px;
+     object-fit: cover;
+     border-radius: 1.5rem;
+     display: block;
+   }
+   .Package-text {
+     margin-top: 0;
+     margin-bottom: 1rem;
+     padding: 0.75rem 4rem;
+     text-align: center;
+     font-weight: 700;
+     font-size: 1.25rem;
+   }
+   .overlay-extended {
+     width: 100%;
+     height: 300px;
+     background-image: url('https://via.placeholder.com/1200x300/00000080/00000080.png');
+     background-size: cover;
+     background-position: center;
+     border-radius: 1.5rem;
+     margin: 0 auto;
+     padding: 0.75rem 4rem;
+     box-sizing: border-box;
+     pointer-events: none;
+     user-select: none;
+   }
+   .section-container {
+     width: 100%;
+     max-width: 1200px;
+     margin: 1rem auto 0 auto;
+     padding: 0.75rem 4rem;
+     color: #4a4a4a;
+     font-weight: 300;
+     font-size: 1rem;
+   }
+   .section-container h2 {
+     font-weight: 700;
+     font-size: 1.125rem;
+     margin-bottom: 0.5rem;
+     color: black;
+     text-align: left;
+     padding: 0;
+   }
+   .content-container {
+     display: flex;
+     align-items: flex-start;
+     gap: 1rem;
+   }
+   .photo-container {
+     display: flex;
+     flex-direction: column;
+     gap: 1rem;
+   }
+   .photo-container.source {
+     gap: 1.5rem;
+   }
+   .photo-item {
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     gap: 1rem;
+   }
+   .rounded-photo {
+     width: 80px;
+     height: 80px;
+     border-radius: 50%;
+     object-fit: cover;
+   }
+   .photo-desc {
+     font-size: 0.871rem;
+     color: #4a4a4a;
+     text-align: left;
+     max-width: 300px;
+   }
+   .text-container {
+     flex-grow: 1;
+   }
+   .text-container p {
+     margin: 0;
+     line-height: 1.5;
+     text-align: left;
+   }
+   .overlay-6-19 {
+     width: 100%;
+     aspect-ratio: 6 / 19;
+     background-image: url('https://via.placeholder.com/600x190/00000080/00000080.png');
+     background-size: cover;
+     background-position: center;
+     border-radius: 1.5rem;
+     margin: 1rem auto 0 auto;
+     padding: 0.75rem 4rem;
+     box-sizing: border-box;
+     pointer-events: none;
+     user-select: none;
+     max-height: 80px;
+   }
+   .centered-description {
+     width: 100%;
+     max-width: 1200px;
+     margin: 1rem auto 0 auto;
+     padding: 0.75rem 4rem;
+     color: #4a4a4a;
+     font-weight: 300;
+     font-size: 1rem;
+     text-align: center;
+   }
+   .centered-description h2 {
+     font-weight: 700;
+     font-size: 1.25rem;
+     margin-bottom: 0.5rem;
+     color: black;
+     text-align: center;
+     padding: 0;
+   }
+   @media (max-width: 640px) {
+     main {
+       padding: 1rem 0;
+     }
+     .header-inner {
+       padding: 0.75rem 2rem;
+     }
+     .header-left span {
+       font-size: 1.25rem;
+     }
+     .header-right a {
+       font-size: 0.875rem;
+     }
+     .image-container img {
+       max-height: 250px;
+     }
+     .overlay-extended {
+       height: 200px;
+       padding: 0.75rem 2rem;
+       background-image: url('https://via.placeholder.com/600x200/00000080/00000080.png');
+     }
+     .Package-text {
+       font-size: 1rem;
+       padding: 0.75rem 2rem;
+     }
+     .section-container {
+       padding: 0.75rem 2rem;
+     }
+     .section-container h2 {
+       font-size: 1rem;
+       padding: 0;
+     }
+     .overlay-6-19 {
+       padding: 0.75rem 2rem;
+       background-image: url('https://via.placeholder.com/300x95/00000080/00000080.png');
+     }
+     .centered-description {
+       padding: 0.75rem 2rem;
+       font-size: 0.875rem;
+     }
+     .centered-description h2 {
+       font-size: 1rem;
+       padding: 0;
+     }
+     h1 {
+       margin-top: 2rem !important;
+       padding: 0.75rem 2rem;
+     }
+     .rounded-photo {
+       width: 60px;
+       height: 60px;
+     }
+     .photo-desc {
+       font-size: 0.75rem;
+       max-width: 200px;
+     }
+   }
+   @media (min-width: 641px) and (max-width: 1024px) {
+     .overlay-extended {
+       height: 250px;
+       background-image: url('https://via.placeholder.com/800x250/00000080/00000080.png');
+     }
+     .image-container img {
+       max-height: 300px;
+     }
+     .overlay-6-19 {
+       background-image: url('https://via.placeholder.com/400x126/00000080/00000080.png');
+     }
+   }
+   h1 {
+     margin-top: 4rem;
+     padding: 0.75rem 4rem;
+     text-align: center;
+   }
+  </style>
+</head>
+<body>
+  <header>
+   <div class="header-inner">
+    <div class="header-left">
+     <span>daxd</span>
+    </div>
+    <div class="header-right">
+     <a href="index.html" aria-label="Back">
+      <i class="fas fa-arrow-left"></i>
+     </a>
+    </div>
+   </div>
+  </header>
+  <main>
+   <h1 class="font-extrabold text-black text-4xl sm:text-5xl md:text-6xl leading-tight mb-2">
+     Tentang Developer dan Sumber Proyek
+   </h1>
+   <div class="section-container">
+    <h2>Developer</h2>
+    <div class="content-container">
+     <div class="photo-container">
+      <div class="photo-item">
+       <img src="res/pic/img1.png" alt="Developer Photo" class="rounded-photo"/>
+       <span class="photo-desc">Tridamz1th<br>UI/HTML/CSS/JS/DATA/DEV daxd</span>
+      </div>
+     </div>
+     <div class="text-container">
+     </div>
+    </div>
+   </div>
+   <div class="section-container">
+    <h2>Source</h2>
+    <div class="content-container">
+     <div class="photo-container source">
+      <div class="photo-item">
+       <img src="res/pic/img2.png" alt="Source Contributor 1" class="rounded-photo"/>
+       <span class="photo-desc">Oppa334<br>TrollStore/Dopamine/Jailbreak</span>
+      </div>
+      <div class="photo-item">
+       <div style="display: flex; align-items: center; gap: 1rem;">
+        <img src="res/pic/img3.png" alt="Source Contributor 2" class="rounded-photo"/>
+        <div style="display: flex; flex-direction: column;">
+         <span class="photo-desc">Nhutgg<br>DNS/Esign/Other</span>
+         <h3 style="font-weight: 700; font-size: 1rem; color: black; margin: 0.5rem 0 0.25rem 0;">Other</h3>
+         <span style="font-weight: 300; font-size: 0.875rem; color: #4a4a4a;">Translation of all languages: Google Translate</span>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="text-container">
+     </div>
+    </div>
+    <div class="overlay-6-19"></div>
+   </div>
+  </main>
+</body>
+</html>
